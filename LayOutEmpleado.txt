@@ -1,0 +1,11 @@
+NumeroEmpleado|RFC|Nombre|ApellidoPaterno|ApellidoMaterno|Email|Telefono|FechaNacimiento|NSS|FechaIngreso|Foto|IdEmpresa|IdPoliza
+20|PQER981010A|Felipe|Castro|Castro|felipec@gmail.com|56493120|20001212|468546|20001212|null|5|4
+21|LCQJ871013C|Ana|Ramos|Ramos|anar@gmail.com|56781025|20001212|894632|20001212|null|1|3
+22|ZOIU801010W|Erika|Martinez|Martinez|erikam@gmail.com|56237915|20001212|659725|20001212|null|2|2
+23|ZKAU951125E|Saul|Rodriguez|Rodriguez|saulr@gmail.com|5698312564|20001212|943256|20001212|null|3|1
+24|APIR960112B|Hector|Alvarado|Alvarado|hectora@gmail.com|56371946|20001212|946528|20001212|null|6|3
+25|CKAU981010J|Luis|Lopez|Castro|luisl@gmail.com|56494620|20001212|418246|20001212|null|5|4
+26|PWKC871013K|Jimena|Zuarez|Ramos|jimenaz@gmail.com|56781925|20001212|834642|20001212|null|1|3
+27|VJHR801010R|Gladys|Ramon|Martinez|gladysr@gmail.com|56967915|20001212|959705|20001212|null|2|2
+28|QPZM951125V|Gerardo|Gutierrez|Rodriguez|gerardog@gmail.com|5664312564|501012|943256|20001212|null|3|1
+29|MEAP960112C|Aaron|Islas|Alvarado|aaroni@gmail.com|56601946|20001212|946720|20001212|null|6|3

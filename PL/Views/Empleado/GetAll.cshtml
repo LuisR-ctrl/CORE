@@ -1,0 +1,149 @@
+﻿@model ML.Empleado
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Empleado</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Seleccione + para registrar un nuevo Empleado.</h5>
+            <hr />
+        </div>
+    </div>
+
+    <div class="container align-content-center">
+            @using (Html.BeginForm("GetAll", "Empleado", FormMethod.Post, new {enctype = "multipart/form-data"}))
+            {
+                <div class="row align-content-center">
+                    
+                    <div class="col-lg-3">
+                        @Html.TextBoxFor(model => model.Nombre, new { @class="form-control", @id="txtNombre", @autocomplete="off", @placeholder="Nombre: Ana"})
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class="form-control", @id="txtApellidoPaterno", @autocomplete="off", @placeholder="Apellido Paterno: Lopez"})
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.DropDownListFor(model => model.Empresa.IdEmpresa, new SelectList(Model.Empresa.Empresas, "IdEmpresa", "Nombre"), "Selecciona una opcion", new { @class = "form-control", @id = "ddlEmpresa" })
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" value="" class="btn btn-info ">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+    </div>
+                    <div class="container">
+                        @using (Html.BeginForm("CargaMasiva", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                        <div class="row">
+                            <div class="col-md-4 pt-5">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-filetype-txt"></i></span>
+                                    <input id="Archivo" type='file' class="form-control" name="Archivo" onchange="validateFile(this);  " />
+                                    <button type="submit" value="" class="btn btn-dark ">
+                                        <i class="bi bi-upload"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </di>
+
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-12 text-end">
+            <!--TEXTO / METODO/ CONTROLADOR-->
+            @Html.ActionLink(" ", "Form", "Empleado", htmlAttributes: new { @class = "btn btn-success bi bi-plus-lg" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Editar</td>
+                        <td>Numero Empleado</td>
+                        <td>RFC</td>
+                        <td>Nombre</td>
+                        <td>Email</td>
+                        <td>Telefono</td>
+                        <td>FechaNacimiento</td>
+                        <td>NSS</td>
+                        <td>FechaIngreso</td>
+                        <td>Foto</td>
+                        <td>Empresa</td>
+                        <td>Poliza</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach (ML.Empleado empleado in Model.Empleados)
+                    {
+                    <tr>
+                        <td><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("Form", "Empleado", new { NumeroEmpleado = empleado.NumeroEmpleado })"></a></td>
+                        <td>@empleado.NumeroEmpleado</td>
+                        <td>@empleado.RFC</td>
+                        <td>@(empleado.Nombre + " " + empleado.ApellidoPaterno + " " + empleado.ApellidoMaterno)</td>
+                        <td>@empleado.Email</td>
+                        <td>@empleado.Telefono</td>
+                        <td>@empleado.FechaNacimiento</td>
+                        <td>@empleado.NSS</td>
+                        <td>@empleado.FechaIngreso</td>
+                        <td>
+                            @if(empleado.Foto != null)
+                            {
+                                <img id="Img" src="data:image/*;base64,@empleado.Foto" style="width:100% ; height:auto;" />
+                            }
+                            else
+                            {
+                                <img id="Img" src="~/images/vacio.svg" style="width:100% ; height:auto" />
+                            }
+                        </td>
+                        <td>@empleado.Empresa.Nombre</td>
+                        <td>@empleado.Poliza.Nombre</td>
+                        <td><a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Empleado", new { NumeroEmpleado = empleado.NumeroEmpleado })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro? @empleado.Nombre');"></a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+            @section Scripts{
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script type= "text/javascript">
+                    
+
+                    function validateFile(){
+
+                        var allowedExtension = ['txt'];
+                        var Archivo = document.getElementById('Archivo').value;
+                        var fileExtension = Archivo.split('.').pop().toLowerCase();
+                        var isValidFile = false;
+
+                        for(var index in allowedExtension) {
+
+                            if(fileExtension === allowedExtension[index]) {
+                                isValidFile = true;
+                                break;
+                            }
+                        }
+
+                        if(!isValidFile) {
+                            alert('Las extensiones permitidas son : *.' + allowedExtension.join(', *.'));
+                            Archivo = ""
+                        }
+
+                        return isValidFile;
+                    }
+                </script>
+            }

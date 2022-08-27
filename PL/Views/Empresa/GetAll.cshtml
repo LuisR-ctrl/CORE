@@ -1,0 +1,72 @@
+﻿@model ML.Empresa
+@using System.Text
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Empresa</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Seleccione + para registrar una nueva Empresa.</h5>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-12 text-end">
+            <!--TEXTO / METODO/ CONTROLADOR-->
+            @Html.ActionLink(" ", "Form", "Empresa", htmlAttributes: new { @class = "btn btn-success bi bi-plus-lg" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Editar</td>
+                        <td>Nombre</td>
+                        <td>Teléfono</td>
+                        <td>Email</td>
+                        <td>Dirección Web</td>
+                        <td>Logo</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach (ML.Empresa empresa in Model.Empresas)
+                    {
+                    <tr>
+                        <td><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("Form", "Empresa", new { IdEmpresa = empresa.IdEmpresa })"></a></td>
+                        <td>@empresa.Nombre</td>
+                        <td>@empresa.Telefono</td>
+                        <td>@empresa.Email</td>
+                        <td>@empresa.DireccionWeb</td>
+                        <td>
+                            @if(empresa.Logo != null)
+                            {
+                                var Logo = String.Format("data:image/svg+xml;base64" );
+                                
+                                <img id="Img" src="data:image/svg+xml;base64,@empresa.Logo" style="width:100% ; height:auto;"/>
+                                @*<img id="Img" src="data:image/*;base64,@empresa.Logo" style="width:100% ; height:auto;" />*@
+                            }
+                            else
+                            {
+                                <img id="Img" src="~/images/vacio.svg" style="width:100% ; height:auto" />
+                            }
+                        </td>
+                        <td><a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Empresa", new { IdEmpresa = empresa.IdEmpresa })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro? @empresa.Nombre');"></a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

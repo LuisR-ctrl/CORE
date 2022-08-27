@@ -1,0 +1,69 @@
+﻿@model ML.Aseguradora
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Aseguradoras</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Seleccione + para registrar una nueva aseguradora.</h5>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-3 text-end">
+            <!--TEXTO / METODO/ CONTROLADOR-->
+            @Html.ActionLink(" ", "Form", "Aseguradora", htmlAttributes: new { @class = "btn btn-success bi bi-plus-lg" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordered table-responsive text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Editar</td>
+                        <td>Nombre</td>
+                        <td>Fecha Creación</td>
+                        <td>Fecha de Modificación</td>
+                        <td>UserName</td>
+                        <td>Imagen</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ML.Aseguradora aseguradora in Model.Aseguradoras)
+                    {
+                    <tr>
+                        <td><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("Form", "Aseguradora", new { IdAseguradora = aseguradora.IdAseguradora })"></a></td>
+                        <td>@aseguradora.Nombre</td>
+                        <td>@aseguradora.FechaCreacion</td>
+                        <td>@aseguradora.FechaModificacion</td>
+                        <td>@aseguradora.Usuario.UserName</td>
+                        <td>
+                            @if(aseguradora.Imagen != null)
+                            {
+                                <img id="Img" src="data:image/svg+xml;base64,@aseguradora.Imagen" style="width:100% ; height:auto;" />
+                            }
+                            else
+                            {
+                                <img id="Img" src="~/images/vacio.svg" style="width:100% ; height:auto" />
+                            }
+                        </td>
+                        <td><a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Aseguradora", new { IdAseguradora = aseguradora.IdAseguradora })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,60 @@
+﻿@model ML.Empleado
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Empleado</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Seleccione el botón para ver el dependiente del Empleado.</h5>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Editar</td>
+                        <td>Numero Empleado</td>
+                        <td>Nombre</td>
+                        <td>Telefono</td>
+                        <td>Foto</td>
+                        <td>Empresa</td>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach (ML.Empleado empleado in Model.Empleados)
+                    {
+                    <tr>
+                        <td><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("GetByNumeroEmpleado", "EmpleadoDependiente", new { NumeroEmpleado = empleado.NumeroEmpleado })"></a></td>
+                        <td>@empleado.NumeroEmpleado</td>
+                        <td>@(empleado.Nombre + " " + empleado.ApellidoPaterno + " " + empleado.ApellidoMaterno)</td>
+                        <td>@empleado.Telefono</td>
+                        <td>
+                            @if(empleado.Foto != null)
+                            {
+                                <img id="Img" src="data:image/*;base64,@empleado.Foto" style="width:100% ; height:auto;" />
+                            }
+                            else
+                            {
+                                <img id="Img" src="~/images/vacio.svg" style="width:100% ; height:auto" />
+                            }
+                        </td>
+                        <td>@empleado.Empresa.Nombre</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,457 @@
+﻿@model ML.Empleado
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Form", "Empleado", FormMethod.Post, new { @class = "",enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-person-bounding-box"></span>
+                            @Html.LabelFor(model => model.NumeroEmpleado, new { @class = "form-control"})
+                            @if(Model.NumeroEmpleado != null)
+                            {
+                                @Html.TextBoxFor(model => model.NumeroEmpleado, new { @class = "form-control", @readonly = true })
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(model => model.NumeroEmpleado, new { @class = "form-control", @placeholder = "eg: 456166" })
+                            }
+                            
+                         </div>
+                         @Html.ValidationMessageFor(model => model.NumeroEmpleado,"", new {@class= "text-danger"}) 
+                     </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-person-bounding-box"></span>
+                            @Html.LabelFor(model => model.RFC, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.RFC, new { @class = "form-control", @placeholder = "eg: QJSR991016Q", @id="txtRFC", @onblur= "ValidarRFC()" })
+                            
+                         </div>
+                         
+                         <label id= "lblErrorRFC"></label>
+                     </div>
+
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.Nombre, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "eg: Aurora", @id = "txtNombre", @onblur= "SoloLetras()" })
+                            
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Nombre,"", new {@class= "text-danger"})
+                        <label id="lblErrorNombre"></label>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.ApellidoPaterno, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @placeholder = "eg: Torres" })
+                            
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ApellidoPaterno,"", new {@class= "text-danger"})
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.ApellidoMaterno, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @placeholder = "eg: Torres" })
+                            @*@Html.ValidationMessageFor(model => model.ApellidoMaterno)*@
+                        </div>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-envelope"></span>
+                            @Html.LabelFor(model => model.Email, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "eg: aurora1@gmail.com", @id="txtEmail", @onblur="ValidarEmail()" })
+                            
+                        </div>
+                        
+                        <label id="lblErrorEmail"></label>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-telephone-fill"></span>
+                            @Html.LabelFor(model => model.Telefono, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", @placeholder = "eg: 5556781254", @id= "txtTelefono", @onblur= "ValidarTelefono()" })
+                            
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Telefono,"", new {@class= "text-danger"})
+                        <label id="lblErrorTelefono"></label>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-calendar-week-fill"></span>
+                            @Html.LabelFor(model => model.FechaNacimiento, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control", @id = "txtFechaNacimiento", @autocomplete="off", @placeholder = "eg: 10-29-2000", onkeydown="return false" })
+                            @*@Html.ValidationMessageFor(model => model.FechaNacimiento)*@
+                        </div>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-telephone-fill"></span>
+                            @Html.LabelFor(model => model.NSS, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.NSS, new { @class = "form-control", @placeholder = "eg: 56781254", @id="txtNSS", @onblur= "ValidarNSS()" })
+                            
+                        </div>
+                        @*@Html.ValidationMessageFor(model => model.NSS,"", new {@class= "text-danger"})*@
+                        <label id="lblErrorNSS"></label>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-calendar-week-fill"></span>
+                            @Html.LabelFor(model => model.FechaIngreso, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.FechaIngreso, new { @class = "form-control", @id = "txtFechaIngreso", @autocomplete="off", @placeholder = "eg: 10-29-2000", onkeydown="return false" })
+                            @*@Html.ValidationMessageFor(model => model.FechaIngreso)*@
+                        </div>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-menu-button-wide-fill"></span>
+                           @Html.LabelFor(model => model.Empresa, new { @class = "form-control" })
+                           @Html.DropDownListFor(model => model.Empresa.IdEmpresa, new SelectList(Model.Empresa.Empresas, "IdEmpresa", "Nombre"), "Selecciona una opcion", new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Empresa.IdEmpresa,"", new {@class= "text-danger"})
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-folder2-open"></span>
+                           @Html.LabelFor(model => model.Poliza, new { @class = "form-control" })
+                           @Html.DropDownListFor(model => model.Poliza.IdPoliza, new SelectList(Model.Poliza.Polizas, "IdPoliza", "Nombre"), "Selecciona una opcion", new { @class = "form-control", @id = "ddlPais" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Poliza.IdPoliza,"", new {@class= "text-danger"})
+                     </div>
+                     
+                     <div class="col-md-3 pt-5">
+
+                        @Html.LabelFor(model=> model.Foto)
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-image"></i></span>
+                            <input id="IFImage" type='file' class="form-control" name="IFImage" onchange="validateFile(this), readURL(this);  " />
+                        </div>
+
+                        @if (Model.Foto != null)
+                        {
+                            <img id="Img" src="data:image/*;base64,@Model.Foto" style="width:100% ; height:auto" />
+                        }
+                        else
+                        {
+                            <img id="Img" src="~/images/perfil.jpg" style="width:100% ; height:auto" />
+                        }
+                    </div>
+                        @Html.HiddenFor(model => model.Foto)
+                        @*validacion add/update*@
+                        @Html.HiddenFor(model => model.Action)
+
+                </div>
+
+                    <div class="row ms-lg-5 pt-5">
+                        <div class="col-lg-5"></div>
+                        <div class="col-lg-1">
+                            <button type="submit" value="" class="btn btn-success ">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-1">
+                            @Html.ActionLink(" ", "GetAll", "Empleado", htmlAttributes: new { @class = "btn btn-danger bi bi-x-circle-fill" })
+                        </div>
+                        <div class="col-lg-5"></div>
+                    </div>
+            }
+
+            @section Scripts{
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+                <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+                <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+                <script type= "text/javascript">
+                    $.datepicker.regional['es'] = {
+                        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                        firstDay: 1,
+                    };
+                    $.datepicker.setDefaults($.datepicker.regional['es']);
+                    //picker
+                    $( function() {
+                        $("#txtFechaNacimiento").datepicker({
+                            autoSize: true,
+                            duration: "fast",
+                            showAnim: "drop",
+                            dateFormat: "mm-dd-yy",
+                            maxDate: "+0m +0w",
+                            hideIfNoPrevNext: true,
+                            nextText: "Siguiente",
+                            prevText: "Anterior",
+                            changeMonth: true,
+                            changeYear: true,
+                            yearRange: '1945:'+(new Date).getFullYear() ,
+                            showOn: "both",
+                            buttonImageOnly: true,
+                            buttonImage: '../ images/calendario.png'
+                          
+                        });
+                    });
+
+                    $( function() {
+                        $("#txtFechaIngreso").datepicker({
+                            autoSize: true,
+                            duration: "fast",
+                            showAnim: "drop",
+                            dateFormat: "mm-dd-yy",
+                            maxDate: "+0m +0w",
+                            hideIfNoPrevNext: true,
+                            nextText: "Siguiente",
+                            prevText: "Anterior",
+                            changeMonth: true,
+                            changeYear: true,
+                            yearRange: '1990:'+(new Date).getFullYear() ,
+                            showOn: "button",
+                            buttonImageOnly: true,
+                            buttonImage: '../images/calendario.png'
+                          
+                        });
+                    });
+
+                    function validateFile(){
+
+                        var allowedExtension = ['jpeg', 'jpg', 'png'];
+                        var IFImage = document.getElementById('IFImage').value;
+                        var fileExtension = IFImage.split('.').pop().toLowerCase();
+                        var isValidFile = false;
+
+                        for(var index in allowedExtension) {
+
+                            if(fileExtension === allowedExtension[index]) {
+                                isValidFile = true;
+                                break;
+                            }
+                        }
+
+                        if(!isValidFile) {
+                            alert('Las extensiones permitidas son : *.' + allowedExtension.join(', *.'));
+                            IFImage = ""
+                        }
+
+                        return isValidFile;
+                    }
+
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#Img')
+                            .attr('src', e.target.result);
+
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    function SoloLetras()
+                    {
+                        var nombre = document.getElementById("txtNombre");
+                        var lblErrorNombre = document.getElementById("lblErrorNombre");
+                        var regex = /^(?=.{3,15}$)[A-ZÁÉÍÓÚ][a-zñáéíóú]+(?: [A-ZÁÉÍÓÚ][a-zñáéíóú]*)?$/;
+
+                        if(regex.exec(nombre.value))
+                        {
+                            lblErrorNombre.textContent = "";
+                            nombre.style.borderColor = "rgba(4, 247, 4 , 0.7)";
+                            nombre.style.borderRadius = "1px";
+                            nombre.style.borderWidth = "4px";
+
+                            return true;
+                        }
+                        else
+                        {
+                            lblErrorNombre.textContent = "No es un nombre válido";
+                            lblErrorNombre.style.color = 'red';
+
+                            setTimeout(function(){
+                                    setTimeout(function(){
+                                        lblErrorNombre.textContent = "";
+                                        lblErrorNombre.style.color = 'white';
+                                        nombre.style.borderColor = "rgba(226, 85, 55, 0.5)";
+                                        nombre.style.borderRadius = "1px"
+                                        nombre.style.borderWidth = "5px"
+
+                                    }, 0500);
+                                lblErrorNombre.textContent = "INTENTE NUEVAMENTE";
+                                lblErrorNombre.style.color = 'red';
+                                }, 1500);
+
+                            
+                            return false;
+                        }
+
+                    }
+
+                    function ValidarNSS()
+                    {
+                        var nss = document.getElementById("txtNSS");
+                        var lblErrorNSS = document.getElementById("lblErrorNSS");
+                        var regex = /^\d{11}$/;
+
+                        if(regex.exec(nss.value))
+                        {
+                            lblErrorNSS.textContent = "";
+                            nss.style.borderColor = "rgba(4, 247, 4 , 0.7)";
+                            nss.style.borderRadius = "1px";
+                            nss.style.borderWidth = "4px";
+
+                            return true;
+                        }
+                        else
+                        {
+                            lblErrorNSS.textContent = "NSS inválido";
+                            lblErrorNSS.style.color = 'red';
+
+                            setTimeout(function(){
+                                    setTimeout(function(){
+                                        lblErrorNSS.textContent = "";
+                                        lblErrorNSS.style.color = 'white';
+                                        nss.style.borderColor = "rgba(226, 85, 55, 0.5)";
+                                        nss.style.borderRadius = "1px"
+                                        nss.style.borderWidth = "5px"
+
+                                    }, 0500);
+                                lblErrorNSS.textContent = "INTENTE NUEVAMENTE";
+                                lblErrorNSS.style.color = 'red';
+                                }, 1500);
+                            
+                            return false;
+                        }
+                    }
+
+                    function ValidarRFC()
+                    {
+                        var rfc = document.getElementById("txtRFC");
+                        var lblErrorRFC = document.getElementById("lblErrorRFC")
+                        var regex = /^(((?!(([CcKk][Aa][CcKkGg][AaOo])|([Bb][Uu][Ee][YyIi])|([Kk][Oo](([Gg][Ee])|([Jj][Oo])))|([Cc][Oo](([Gg][Ee])|([Jj][AaEeIiOo])))|([QqCcKk][Uu][Ll][Oo])|((([Ff][Ee])|([Jj][Oo])|([Pp][Uu]))[Tt][Oo])|([Rr][Uu][Ii][Nn])|([Gg][Uu][Ee][Yy])|((([Pp][Uu])|([Rr][Aa]))[Tt][Aa])|([Pp][Ee](([Dd][Oo])|([Dd][Aa])|([Nn][Ee])))|([Mm](([Aa][Mm][OoEe])|([Ee][Aa][SsRr])|([Ii][Oo][Nn])|([Uu][Ll][Aa])|([Ee][Oo][Nn])|([Oo][Cc][Oo])))))[A-Za-zñÑ&][aeiouAEIOUxX]?[A-Za-zñÑ&]{2}(((([02468][048])|([13579][26]))0229)|(\d{2})((02((0[1-9])|1\d|2[0-8]))|((((0[13456789])|1[012]))((0[1-9])|((1|2)\d)|30))|(((0[13578])|(1[02]))31)))[a-zA-Z1-9]{2}[\dAa])|([Xx][AaEe][Xx]{2}010101000))$/;
+                        
+                        if(regex.test(rfc.value))
+                        {
+                            lblErrorRFC.textContent = "";
+                            rfc.style.borderColor = "rgba(4, 247, 4 , 0.7)";
+                            rfc.style.borderRadius = "1px";
+                            rfc.style.borderWidth = "4px";
+
+                            return true;
+                        }
+                        else
+                        {
+                            lblErrorRFC.textContent = "RFC inválido";
+                            lblErrorRFC.style.color = 'red';
+
+                            setTimeout(function(){
+                                    setTimeout(function(){
+                                        lblErrorRFC.textContent = "";
+                                        lblErrorRFC.style.color = 'white';
+                                        rfc.style.borderColor = "rgba(226, 85, 55, 0.5)";
+                                        rfc.style.borderRadius = "1px"
+                                        rfc.style.borderWidth = "5px"
+
+                                    }, 0500);
+                                lblErrorRFC.textContent = "INTENTE NUEVAMENTE";
+                                lblErrorRFC.style.color = 'red';
+                                }, 1500);
+                            
+                            return false;
+                        }
+                    }
+
+                    function ValidarEmail()
+                    {
+                        var email = document.getElementById("txtEmail");
+                        var lblErrorEmail = document.getElementById("lblErrorEmail");
+                        lblErrorEmail.textContent="";
+                        var regex = /[a-z0-9_\-]+(\.[_a-z0-9\-]+)*@@([_a-z0-9\-]+\.)+([a-z]{2}|aero|asia|arpa|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx)/;
+
+                            if(!regex.test(email.value))
+                            {
+                                lblErrorEmail.textContent = "El correo no es válido";
+                                lblErrorEmail.style.color = 'red';
+
+                                    setTimeout(function(){
+                                        setTimeout(function(){
+                                            lblErrorEmail.textContent = "";
+                                            lblErrorEmail.style.color = 'white';
+                                            email.style.borderColor = "rgba(226, 85, 55, 0.5)";
+                                            email.style.borderRadius = "1px"
+                                            email.style.borderWidth = "5px"
+
+                                        }, 0500);
+                                    lblErrorEmail.textContent = "INTENTE NUEVAMENTE";
+                                    lblErrorEmail.style.color = 'red';
+                                    }, 1500);
+                            
+                                return false;
+                            }
+                            else
+                            {
+                                lblErrorEmail.textContent = "";
+                                email.style.borderColor = "rgba(4, 247, 4 , 0.7)";
+                                email.style.borderRadius = "1px";
+                                email.style.borderWidth = "4px";
+
+                            return true;
+                            }
+                    }
+
+                    function ValidarTelefono()
+                    {
+                        var telefono = document.getElementById("txtTelefono");
+                        var lblErrorTelefono = document.getElementById("lblErrorTelefono");
+                        var regex = /^\(?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+
+                        if(regex.test(telefono.value))
+                        {
+                            lblErrorTelefono.textContent = "";
+                            telefono.style.borderColor = "rgba(4, 247, 4 , 0.7)";
+                            telefono.style.borderRadius = "1px";
+                            telefono.style.borderWidth = "4px";
+
+                            return true;
+                        }
+                        else
+                        {
+                            lblErrorTelefono.textContent = "RFC inválido";
+                            lblErrorTelefono.style.color = 'red';
+
+                            setTimeout(function(){
+                                    setTimeout(function(){
+                                        lblErrorTelefono.textContent = "";
+                                        lblErrorTelefono.style.color = 'white';
+                                        telefono.style.borderColor = "rgba(226, 85, 55, 0.5)";
+                                        telefono.style.borderRadius = "1px"
+                                        telefono.style.borderWidth = "5px"
+
+                                    }, 0500);
+                                lblErrorTelefono.textContent = "INTENTE NUEVAMENTE";
+                                lblErrorTelefono.style.color = 'red';
+                                }, 1500);
+                            
+                            return false;
+
+                        }
+
+                    }
+                </script>
+            }
+

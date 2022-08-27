@@ -1,0 +1,115 @@
+﻿@model ML.Usuario
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Usuarios</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Seleccione + para registrar una nuevo Usuario.</h5>
+            <hr />
+        </div>
+    </div>
+
+    <div class="container align-content-center">
+            @using (Html.BeginForm("GetAll", "Usuario", FormMethod.Post, new {enctype = "multipart/form-data"}))
+            {
+                <div class="row align-content-center">
+                    
+                    <div class="col-lg-3">
+                        @Html.TextBoxFor(model => model.Nombre, new { @class="form-control", @id="txtNombre", @autocomplete="off", @placeholder="Nombre: NombreAntonio"})
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class="form-control", @id="txtApellidoPaterno", @autocomplete="off", @placeholder="Apellido Paterno: Lopez"})
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.TextBoxFor(model => model.UserName, new { @class="form-control", @id="txtUserName", @autocomplete="off", @placeholder="Username: AntonioL"})
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" value="" class="btn btn-info ">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+
+                </div>
+            }
+    </div>
+
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-12 text-end">
+            <!--TEXTO / METODO/ CONTROLADOR-->
+            @Html.ActionLink(" ", "Form", "Usuario", htmlAttributes: new { @class = "btn btn-success bi bi-plus-lg" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Editar</td>
+                        <td>User Name</td>
+                        <td>Nombre</td>
+                        <td>Email</td>
+                        <td>Sexo</td>
+                        <td>Teléfono</td>
+                        <td>Celular</td>
+                        <td>Fecha Nacimiento</td>
+                        <td>CURP</td>
+                        <td>Tipo</td>
+                        <td>Imagen</td>
+                        <td>Dirección</td>
+                        <td>Estatus</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach (ML.Usuario usuario in Model.Usuarios)
+                    {
+                    <tr>
+                        <td><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("Form", "Usuario", new { IdUsuario = usuario.IdUsuario })"></a></td>
+                        <td>@usuario.UserName</td>
+                        <td>@(usuario.Nombre + " " + usuario.ApellidoPaterno + " " + usuario.ApellidoMaterno)</td>
+                        <td>@usuario.Email</td>
+                        <td>@usuario.Sexo</td>
+                        <td>@usuario.Telefono</td>
+                        <td>@usuario.Celular</td>
+                        <td>@usuario.FechaNacimiento</td>
+                        <td>@usuario.Curp</td>
+                        <td>@usuario.Rol.Nombre</td>
+                        <td>
+                            @if(usuario.Imagen != null)
+                            {
+                                <img id="Img" src="data:image/*;base64,@(usuario.Imagen)" style="width:100% ; height:auto;" />
+                            }
+                            else
+                            {
+                                <img id="Img" src="~/images/perfil.jpg" style="width:100% ; height:auto" />
+                            }
+                        </td>
+                        <td>@(usuario.Direccion.Calle + " " + "Num. int:" +  usuario.Direccion.NumeroInterior + " " + "Num. ext:" + usuario.Direccion.NumeroExterior + " " + usuario.Direccion.Colonia.Nombre + "," + " " + usuario.Direccion.Colonia.CodigoPostal + "," + " " + usuario.Direccion.Colonia.Municipio.Nombre + "," + " " + usuario.Direccion.Colonia.Municipio.Estado.Nombre + "," + " " + usuario.Direccion.Colonia.Municipio.Estado.Pais.Nombre+ ".")</td>
+                        <td>   
+                            @if (usuario.Estatus)
+                            {
+                                <a href="@Url.Action("UpdateEstatus", "Usuario" , new{ IdUsuario = usuario.IdUsuario})"><img src="~/images/on.svg" style="width:100% ; height:auto;"></a>
+                                
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("UpdateEstatus", "Usuario" , new{ IdUsuario = usuario.IdUsuario})"><img src="~/images/off.svg" style="width:100% ; height:auto;"></a>
+                            }
+                        </td> 
+                        <td><a class="btn btn-danger bi bi-trash-fill" href="@Url.Action("Delete", "Usuario", new { IdDireccion = usuario.Direccion.IdDireccion, IdUsuario = usuario.IdUsuario })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

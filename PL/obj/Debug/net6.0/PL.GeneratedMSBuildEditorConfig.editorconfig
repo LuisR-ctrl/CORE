@@ -1,0 +1,140 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PL
+build_property.RootNamespace = PL
+build_property.ProjectDir = C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\PL\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\PL
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Aseguradora/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlZ3VyYWRvcmFcRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Aseguradora/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlZ3VyYWRvcmFcR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Aseguradora/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlZ3VyYWRvcmFcTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/CargaMasiva/EmpleadoCargaMasiva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ2FNYXNpdmFcRW1wbGVhZG9DYXJnYU1hc2l2YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/CargaMasiva/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ2FNYXNpdmFcTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/EmpleadoDependiente/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9EZXBlbmRpZW50ZVxGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/EmpleadoDependiente/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9EZXBlbmRpZW50ZVxHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/EmpleadoDependiente/GetByNumeroEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9EZXBlbmRpZW50ZVxHZXRCeU51bWVyb0VtcGxlYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/EmpleadoDependiente/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9EZXBlbmRpZW50ZVxNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empleado/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empleado/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empleado/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empresa/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empresa/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Empresa/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Login/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Shared/_LayoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Usuario/ConsumGet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDb25zdW1HZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Usuario/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Usuario/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Usuario/Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/digis/Documents/LUIS_ANGEL_ROMAN_TOVAR/LRomanProgramacionNCapasCore/PL/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ykycstrbf1

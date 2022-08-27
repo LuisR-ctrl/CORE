@@ -1,0 +1,125 @@
+﻿@model ML.Empresa
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Formulario</h1>
+    @using (Html.BeginForm("Form", "Empresa", FormMethod.Post, new { @class = "",enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    @Html.TextBoxFor(model => model.IdEmpresa, new { @class = "form-control invisible", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.IdEmpresa) 
+
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-person-bounding-box"></span>
+                            @Html.LabelFor(model => model.Nombre, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "eg: AXXA" })
+                            @Html.ValidationMessageFor(model => model.Nombre)
+                         </div>
+                     </div>
+
+                     <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.Telefono, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", @placeholder = "eg: 56897845" })
+                            @Html.ValidationMessageFor(model => model.Telefono)
+                        </div>
+                     </div>
+
+                     <div class="col-lg-6 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.Email, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "eg: axxa@gmail.com" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                     </div>
+
+                     <div class="col-lg-6 pt-5">
+                        <div class="input-group">
+                            <span class="input-group-text bi bi-body-text"></span>
+                            @Html.LabelFor(model => model.DireccionWeb, new { @class = "form-control"})
+                            @Html.TextBoxFor(model => model.DireccionWeb, new { @class = "form-control", @placeholder = "eg: www.axxa.com" })
+                            @Html.ValidationMessageFor(model => model.DireccionWeb)
+                        </div>
+                     </div>
+
+                     <div class="col-lg-4 pt-5">
+                        @Html.LabelFor(model=> model.Logo)
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-image"></i></span>
+                            <input id="IFImage" type='file' class="form-control" name="IFImage" onchange="validateFile(this), readURL(this);  " />
+                        </div>
+
+                        @if (Model.Logo != null)
+                        {
+                            <img id="Img" src="data:image/svg+xml;base64,@Model.Logo" style="width:100% ; height:auto" />
+                        }
+                        else
+                        {
+                            <img id="Img" src="~/images/vacio.svg" style="width:100% ; height:auto" />
+                        }
+                    </div>
+                        @Html.HiddenFor(model => model.Logo)
+                </div>   
+                
+                <div class="row ms-lg-5 pt-5">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-1">
+                        <button type="submit" value="" class="btn btn-success ">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </button>
+                            @*<input type="submit" value="" class="btn btn-success glyphicon glyphicon-ok" />*@
+                        </div>
+                        <div class="col-lg-1">
+                            @Html.ActionLink(" ", "GetAll", "Empresa", htmlAttributes: new { @class = "btn btn-danger bi bi-x-circle-fill" })
+                        </div>
+                    <div class="col-lg-5"></div>
+                </div>
+            }
+
+            @section Scripts{
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script type= "text/javascript">
+                    function validateFile(){
+
+                        var allowedExtension = ['jpeg', 'jpg', 'png', 'svg'];
+                        var IFImage = document.getElementById('IFImage').value;
+                        var fileExtension = IFImage.split('.').pop().toLowerCase();
+                        var isValidFile = false;
+
+                        for(var index in allowedExtension) {
+
+                            if(fileExtension === allowedExtension[index]) {
+                                isValidFile = true;
+                                break;
+                            }
+                        }
+
+                        if(!isValidFile) {
+                            alert('Las extensiones permitidas son : *.' + allowedExtension.join(', *.'));
+                            IFImage = ""
+                        }
+
+                        return isValidFile;
+                    }
+
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#Img')
+                            .attr('src', e.target.result);
+
+                            };
+
+                        reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+                </script>
+            }
+

@@ -1,0 +1,154 @@
+﻿@model ML.Dependiente
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Form</h1>
+    @using(Html.BeginForm("Form", "EmpleadoDependiente", FormMethod.Post, new {@class="", enctype="multipart/form-data"}))
+    {
+        <div class="row">
+
+                
+                    @Html.LabelFor(model => model.IdDependiente, new { @class = "form-control invisible"})
+                    @Html.TextBoxFor(model => model.IdDependiente, new {@class = "form-control invisible", @placeholder = "1" })             
+
+                    @Html.LabelFor(model => model.Empleado.NumeroEmpleado, new { @class = "form-control invisible"})
+                    @Html.TextBoxFor(model => model.Empleado.NumeroEmpleado, new {@class = "form-control invisible", @placeholder = "Ana" })             
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.Nombre, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.Nombre, new {@class = "form-control", @placeholder = "Ana" })             
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.ApellidoPaterno, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.ApellidoPaterno, new {@class = "form-control", @placeholder = "Pérez" })             
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.ApellidoMaterno, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.ApellidoMaterno, new {@class = "form-control", @placeholder = "Pérez" })             
+                </div>
+            </div>
+            <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-calendar-week-fill"></span>
+                    @Html.LabelFor(model => model.FechaNacimiento, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control", @id = "txtFechaNacimiento", @autocomplete="off", @placeholder = "eg: 10-29-2000", onkeydown="return false" })
+                 </div>
+             </div>
+             <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.EstadoCivil, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.EstadoCivil, new {@class = "form-control", @placeholder = "Soltero" })             
+                </div>
+            </div>
+            <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.Genero, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.Genero, new {@class = "form-control", @placeholder = "F" })             
+                </div>
+            </div>
+            <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.Telefono, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.Telefono, new {@class = "form-control", @placeholder = "55 56789461" })             
+                </div>
+            </div>
+            <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-person-bounding-box"></span>
+                    @Html.LabelFor(model => model.RFC, new { @class = "form-control"})
+                    @Html.TextBoxFor(model => Model.RFC, new {@class = "form-control", @placeholder = "QLSP126579A4" })             
+                </div>
+            </div>
+            <div class="col-lg-4 pt-5">
+                <div class="input-group">
+                    <span class="input-group-text bi bi-menu-button-wide-fill"></span>
+                    @Html.LabelFor(model => model.DependienteTipo, new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.DependienteTipo.IdDependienteTipo, new SelectList(Model.DependienteTipo.DependienteTipos, "IdDependienteTipo", "Nombre"), "Selecciona una opcion", new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(model => model.DependienteTipo.IdDependienteTipo,"", new {@class= "text-danger"})
+            </div>
+
+        </div>
+
+        <div class="row ms-lg-5 pt-5">
+                <div class="col-lg-5"></div>
+                    <div class="col-lg-1">
+                        <button type="submit" value="" class="btn btn-success ">
+                            <i class="bi bi-check-circle-fill"></i>
+                         </button>
+                     </div>
+                     <div class="col-lg-1">
+                        @Html.ActionLink(" ", "GetAll", "EmpleadoDependiente", htmlAttributes: new { @class = "btn btn-danger bi bi-x-circle-fill" })
+                     </div>
+                <div class="col-lg-5"></div>
+             </div>
+    }
+
+    @section Scripts{
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+                <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+                <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+                <script type= "text/javascript">
+                    $.datepicker.regional['es'] = {
+                        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                        firstDay: 1,
+                    };
+                    $.datepicker.setDefaults($.datepicker.regional['es']);
+                    //picker
+                    $( function() {
+                        $("#txtFechaNacimiento").datepicker({
+                            autoSize: true,
+                            duration: "fast",
+                            showAnim: "drop",
+                            dateFormat: "mm-dd-yy",
+                            maxDate: "+0m +0w",
+                            hideIfNoPrevNext: true,
+                            nextText: "Siguiente",
+                            prevText: "Anterior",
+                            changeMonth: true,
+                            changeYear: true,
+                            yearRange: '1945:'+(new Date).getFullYear() ,
+                            showOn: "both",
+                            buttonImageOnly: true,
+                            buttonImage: '../ images/calendario.png'
+                          
+                        });
+                    });
+
+                    $( function() {
+                        $("#txtFechaIngreso").datepicker({
+                            autoSize: true,
+                            duration: "fast",
+                            showAnim: "drop",
+                            dateFormat: "mm-dd-yy",
+                            maxDate: "+0m +0w",
+                            hideIfNoPrevNext: true,
+                            nextText: "Siguiente",
+                            prevText: "Anterior",
+                            changeMonth: true,
+                            changeYear: true,
+                            yearRange: '1990:'+(new Date).getFullYear() ,
+                            showOn: "button",
+                            buttonImageOnly: true,
+                            buttonImage: '../images/calendario.png'
+                          
+                        });
+                    });
+                </script>
+            }
+

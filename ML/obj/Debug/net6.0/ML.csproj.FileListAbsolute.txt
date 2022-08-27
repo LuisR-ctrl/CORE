@@ -1,0 +1,12 @@
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\bin\Debug\net6.0\ML.deps.json
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\bin\Debug\net6.0\ML.dll
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\bin\Debug\net6.0\ML.pdb
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.csproj.AssemblyReference.cache
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.AssemblyInfoInputs.cache
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.AssemblyInfo.cs
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.csproj.CoreCompileInputs.cache
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.dll
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\refint\ML.dll
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ML.pdb
+C:\Users\digis\Documents\LUIS_ANGEL_ROMAN_TOVAR\LRomanProgramacionNCapasCore\ML\obj\Debug\net6.0\ref\ML.dll

@@ -1,0 +1,123 @@
+﻿@model ML.Aseguradora
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Formulario</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            @using (Html.BeginForm("Form", "Aseguradora", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.IdAseguradora, new { @class = "form-control invisible", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.IdAseguradora)
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row pb-4">
+                        <div class="col-lg-2">
+                            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Eg: AXXA"})
+                            @Html.ValidationMessageFor(model => model.Nombre)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row pb-4">
+                        <div class="col-lg-2">
+                            @Html.LabelFor(model => model.Usuario, new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.Usuario.IdUsuario, new SelectList(Model.Usuario.Usuarios, "IdUsuario", "UserName"), "Selecciona una opcion", new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+                        @Html.LabelFor(model=> model.Imagen)
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-image"></i></span>
+                            <input id="IFImage" type='file' class="form-control" name="IFImage" onchange="validateFile(this), readURL(this);  " />
+                        </div>
+
+                        @if (Model.Imagen != null)
+                        {
+                            <img id="Img" src="data:image/svg+xml;base64,@Model.Imagen" style="width:100% ; height:auto" />
+                        }
+                        else
+                        {
+                            <img id="Img" src="~/images/perfil.jpg" style="width:100% ; height:auto" />
+                        }
+                    </div>
+                        @Html.HiddenFor(model => model.Imagen)
+
+                <div class="form-group">
+                    <div class="row ms-lg-5">
+                        <div class="col-lg-1">
+                            <button type="submit" value="" class="btn btn-success ">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-1">
+                            @Html.ActionLink(" ", "GetAll", "Aseguradora", htmlAttributes: new { @class = "btn btn-danger bi bi-x-circle-fill" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script type= "text/javascript">
+                    function validateFile(){
+
+                        var allowedExtension = ['jpeg', 'jpg', 'png', 'svg'];
+                        var IFImage = document.getElementById('IFImage').value;
+                        var fileExtension = IFImage.split('.').pop().toLowerCase();
+                        var isValidFile = false;
+
+                        for(var index in allowedExtension) {
+
+                            if(fileExtension === allowedExtension[index]) {
+                                isValidFile = true;
+                                break;
+                            }
+                        }
+
+                        if(!isValidFile) {
+                            alert('Las extensiones permitidas son : *.' + allowedExtension.join(', *.'));
+                            IFImage = ""
+                        }
+
+                        return isValidFile;
+                    }
+
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#Img')
+                            .attr('src', e.target.result);
+
+                            };
+
+                        reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+                </script>
+            }
